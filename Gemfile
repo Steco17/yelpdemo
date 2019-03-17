@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+gem 'carrierwave', '~> 0.11.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
@@ -23,6 +23,7 @@ end
 group :production do
   gem 'pg'
 end
+gem "mini_magick"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -1,0 +1,2 @@
+class Revoew < ApplicationRecord
+end

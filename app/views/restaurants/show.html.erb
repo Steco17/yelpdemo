@@ -1,26 +1,47 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @restaurant.image_url %>
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag @restaurant.image_url %>
+        <h2>
 
-<p>
-  <strong>Adress:</strong>
-  <%= @restaurant.adress %>
-</p>
+          <%= @restaurant.name %>
+          </h2>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @restaurant.phone %>
-</p>
+          <p>
+            <strong>Adress:</strong>
+            <%= @restaurant.adress %>
+            </p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @restaurant.website %>
-</p>
+            <p>
+              <strong>Phone:</strong>
+              <%= @restaurant.phone %>
+              </p>
 
-<%= link_to  "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+              <p>
+                <strong>Website:</strong>
+                <%= link_to @restaurant.website , @restaurant.website %>
+                </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) , class:"btn btn-link"%> |
-<%= link_to 'Back', restaurants_path, class:"btn btn-link" %>
+                <%= link_to"Write Review" ,
+                  new_restaurant_review_path(@restaurant), class:"btn
+                  btn-primary" %>
+                </div>
+
+                <div class="col-md-9">
+                  <% if @reviews.blank? %>
+                    <h3>No reviews yrt. Be the first to wite one</h3>
+                    <% else %>
+                      <% @reviews.each do |review| %>
+                        <p><%= review.rating %></p>
+                          <p><%= review.comment %></p>
+                            <% end %>
+
+                              <% end %>
+                              </div>
+                            </div>
+
+                            <%= link_to 'Edit',
+                              edit_restaurant_path(@restaurant) , class:" btn
+                              btn-link" %> |
+                              <%= link_to 'Back', restaurants_path, class:" btn
+                                btn-link" %>

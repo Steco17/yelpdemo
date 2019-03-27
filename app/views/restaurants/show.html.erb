@@ -25,6 +25,10 @@
     </p>
 
     <%= link_to"Write Review" , new_restaurant_review_path(@restaurant), class:"btn re btn-primary" %>
+    <br>
+   <div style='width: 300px;'>
+     <div id="map" style='width: 300px; height: 300px;'></div>
+   </div>
   </div>
 
   <div class="col-md-9">
@@ -68,6 +72,29 @@
 <%= link_to 'Back', restaurants_path, class:" btn btn-link" %>
 
 <script>
+
+  //js map code
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {
+  disableDefaultUI: true,
+  
+}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 5.480400,
+      "lng": 10.444775,
+      "picture": {
+        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+        "width":  32,
+        "height": 32
+      },
+      "infowindow": "HOME!"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+}); 
+//js star rating
   $('.star-rating').raty({
     path: '/assets/',
     readOnly: true,

@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
+//= require underscore
+//= require gmaps/google
 //= require bootstrap-sprockets
 //= require_tree .
 
